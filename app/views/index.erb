@@ -1,0 +1,29 @@
+  <h2>Genera little URLS</h>
+   <br>
+    <br>
+  <!-- Forma que obtiene la url y hace una url corta, sin registrar al user -->
+  <form action="/urls" method="post">
+    Introduce tu url: 
+    <br>
+    <input type="text" name="user_url">
+    <input type="submit" value="Get Url">
+  </form>  
+
+  <!-- despliga la url corta creada -->
+   <div id="url">
+    <% if @url %>
+        <a href="/long_url/<%=@url.short_url %>"><%= "http://#{@url.short_url}" %> </a>
+    </br>
+    <% end %> 
+  </div>
+
+
+
+ <!-- Para hacer login  -->
+  <div class="links">
+   <p>Para guardar las paginas que visitas haz:</p>
+   <a href="/user"> log in </a>
+   <p>Para registrarte pulsa aqui</p>
+   <a href="/register"> Register </a>  
+  </div>
+

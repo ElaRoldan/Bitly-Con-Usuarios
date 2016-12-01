@@ -1,0 +1,33 @@
+<h1>Bienvenido a nuestro Bitly!</h1>
+<p><%= @user.mail%></p>
+
+<!-- Forma que obtiene la url del usuario -->
+  <form action="/urls_registered_users/<%= @user.id %>" method="post">
+    Introduce tu url: 
+    <br>
+    <input type="text" name="user_url">
+    <input type="submit" value="Get Url">
+  </form> 
+
+<div id="pages" >
+  <br> 
+  <br>
+    <p>Estas son todas las urls que haz registrado</p>
+     <% if @user_urls %>
+      <% @user_urls.each do |url| %>
+         <br>
+         <p> <%= url.original %> </p>
+         <a href="/long_url/<%= url.short_url %>"><%=  "http://#{url.short_url}" %> </a>
+          <p> <%= url.click_count %></p>
+       </br>
+       <% end  %> 
+     <% end %>
+     
+</div>
+
+</br>
+</br>
+</br>
+<form action="/logout" method="get">
+<input type="submit" value="Log out">
+</form>
